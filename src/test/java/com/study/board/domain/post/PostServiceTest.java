@@ -13,11 +13,11 @@ class PostServiceTest {
 
     @Test
     void save(){
-        PostRequest postRequest = new PostRequest();
-        postRequest.setTitle("testTitle");
-        postRequest.setContent("test Content");
-        postRequest.setWriter("service tester");
-        postRequest.setNotice_yn(false);
-        //postService.savePost(postRequest);
+//        PostRequest postRequest = new PostRequest();
+//        postRequest.setTitle("testTitle");
+//        postRequest.setContent("test Content");
+//        postRequest.setWriter("service tester");
+//        postRequest.setNotice_yn(false);
+//        //postService.savePost(postRequest);
     }
 }
