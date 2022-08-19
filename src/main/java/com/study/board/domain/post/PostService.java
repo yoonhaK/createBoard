@@ -1,5 +1,8 @@
 package com.study.board.domain.post;
 
+import com.study.board.common.dto.SearchDto;
+import com.study.board.paging.Pagination;
+import com.study.board.paging.PagingResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -53,8 +56,13 @@ public class PostService {
      * 게시글 리스트 조회
      * @return list of posts
      */
-    public List<PostResponse> findAllPost(){
-        return postMapper.findAll();
+    public PagingResponse<PostResponse> findAllPost(final SearchDto params){
+        int count = postMapper.count(params);
+        Pagination pagination = new Pagination(count, params);
+        params.setPagination(pagination);
+
+        List<PostResponse> list = postMapper.findAll(params);
+        return new PagingResponse<>(list, pagination);
     }
 
     public boolean cntPlus(Long id){
